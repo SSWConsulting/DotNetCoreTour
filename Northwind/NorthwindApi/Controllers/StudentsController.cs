@@ -6,6 +6,7 @@ using EfCoreDemo.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using EfCoreDemo;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
 namespace NorthwindApi.Controllers
@@ -84,8 +85,53 @@ namespace NorthwindApi.Controllers
                 .ToListAsync();
         }
 
-        
 
+
+        /// <summary>
+        /// This is bad!
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost("update")]
+        public async Task<Student> UpdateStudent(Student model)
+        {
+            _dbCtx.Students.Update(model);
+            await _dbCtx.SaveChangesAsync();
+
+            return model;
+        }
+
+
+        [HttpPost("save")]
+        public async Task<Student> SaveStudent(Student model)
+        {
+            var entity = await _dbCtx.FindAsync<Student>(model.Id)
+                ?? new Student();
+
+            entity.Firstname = model.Firstname;
+            entity.Lastname = model.Lastname;
+
+            if (entity.Id == 0)
+            {
+                await _dbCtx.AddAsync(entity);
+            }
+            await _dbCtx.SaveChangesAsync();
+
+            return entity;
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteStudent([FromRoute] int id)
+        {
+            var entity = await _dbCtx.Students.FindAsync(id);
+            if (entity == null) return new NotFoundResult();
+
+            _dbCtx.Students.Remove(entity);
+            await _dbCtx.SaveChangesAsync();
+
+            return new NoContentResult();
+        }
 
     }
 }
