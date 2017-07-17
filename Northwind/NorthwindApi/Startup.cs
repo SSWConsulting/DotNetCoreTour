@@ -39,6 +39,8 @@ namespace NorthwindTraders.NorthwindApi
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            InitDemoDb.Init(app.ApplicationServices.GetRequiredService<DemoDbContext>());
         }
     }
 }
