@@ -20,5 +20,8 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EfCoreDemo\EfCoreDemo.csproj" />
+  </ItemGroup>
 
 </Project>
