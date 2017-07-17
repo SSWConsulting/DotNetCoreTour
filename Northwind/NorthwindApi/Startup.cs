@@ -29,7 +29,7 @@ namespace NorthwindTraders.NorthwindApi
             services.AddMvc();
 
             services.AddDbContext<DemoDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("LfmEntities"), b => b.MigrationsAssembly("Uqbs.Lfm.EfCore")));
+                opt.UseSqlServer(Configuration.GetConnectionString("EfCoreDemo"), b => b.MigrationsAssembly("EfCoreDemo")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
