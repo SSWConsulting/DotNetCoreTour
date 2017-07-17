@@ -1,5 +1,4 @@
-﻿using EfCoreDemo;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,9 +26,6 @@ namespace NorthwindTraders.NorthwindApi
         {
             // Add framework services.
             services.AddMvc();
-
-            services.AddDbContext<DemoDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("EfCoreDemo"), b => b.MigrationsAssembly("EfCoreDemo")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
