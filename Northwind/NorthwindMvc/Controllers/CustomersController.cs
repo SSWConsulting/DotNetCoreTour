@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NorthwindMvc.Domain;
-using NorthwindMvc.Persistance;
+using NorthwindTraders.NorthwindMvc.Domain;
+using NorthwindTraders.NorthwindMvc.Persistance;
 
-namespace NorthwindMvc.Controllers
+namespace NorthwindTraders.NorthwindMvc.Controllers
 {
     public class CustomersController : Controller
     {

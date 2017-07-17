@@ -1,8 +1,8 @@
-﻿using NorthwindMvc.Domain;
+﻿using NorthwindTraders.NorthwindMvc.Domain;
 using System;
 using System.Linq;
 
-namespace NorthwindMvc.Persistance
+namespace NorthwindTraders.NorthwindMvc.Persistance
 {
     public class NorthwindInitializer
     {

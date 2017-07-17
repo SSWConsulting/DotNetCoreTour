@@ -4,9 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using NorthwindMvc.Persistance;
+using NorthwindTraders.NorthwindMvc.Persistance;
 
-namespace NorthwindMvc
+namespace NorthwindTraders.NorthwindMvc
 {
     public class Startup
     {

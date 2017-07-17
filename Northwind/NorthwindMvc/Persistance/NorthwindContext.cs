@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NorthwindMvc.Domain;
+using NorthwindTraders.NorthwindMvc.Domain;
 
-namespace NorthwindMvc.Persistance
+namespace NorthwindTraders.NorthwindMvc.Persistance
 {
     public class NorthwindContext : DbContext
     {

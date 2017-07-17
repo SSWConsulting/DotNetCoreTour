@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NorthwindMvc.Domain
+namespace NorthwindTraders.NorthwindMvc.Domain
 {
     public partial class Customer
     {

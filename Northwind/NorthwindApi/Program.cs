@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace NorthwindApi
+namespace NorthwindTraders.NorthwindApi
 {
     public class Program
     {

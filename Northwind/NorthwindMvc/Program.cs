@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace NorthwindMvc
+namespace NorthwindTraders.NorthwindMvc
 {
     public class Program
     {
