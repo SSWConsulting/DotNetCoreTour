@@ -1,0 +1,1 @@
+dotnet ef migrations add -p .\EfCoreDemo.csproj -s ..\NorthwindApi\NorthwindApi.csproj %*
