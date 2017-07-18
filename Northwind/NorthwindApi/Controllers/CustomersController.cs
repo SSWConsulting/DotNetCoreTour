@@ -42,7 +42,7 @@ namespace NorthwindTraders.NorthwindApi.Controllers
 
         // GET api/customers/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get([FromRoute]string id)
         {
             var customer = await _getCustomerDetailQuery.Execute(id);
             if (customer == null)
@@ -93,7 +93,7 @@ namespace NorthwindTraders.NorthwindApi.Controllers
 
         // DELETE api/customers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete([FromRoute]string id)
         {
             await _deleteCustomerCommand.Execute(id);
 

@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NorthwindTraders.NorthwindApi.Infrastructure;
 using NorthwindTraders.Persistence;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace NorthwindTraders.NorthwindApi
 {
@@ -31,6 +32,11 @@ namespace NorthwindTraders.NorthwindApi
             // Add framework services.
             services.AddMvc();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Northwind API", Version = "v1" });
+            });
+
             services.AddDbContext<NorthwindContext>(options => 
                     options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext")));
         }
@@ -48,6 +54,12 @@ namespace NorthwindTraders.NorthwindApi
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind API V1");
+            });
 
             NorthwindInitializer.Initialize(context);
         }
