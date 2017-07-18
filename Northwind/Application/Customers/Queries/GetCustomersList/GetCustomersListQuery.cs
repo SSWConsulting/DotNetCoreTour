@@ -8,7 +8,7 @@ namespace NorthwindTraders.Application.Customers.Queries.GetCustomersList
 {
     public class GetCustomersListQuery : IGetCustomersListQuery
     {
-        public readonly NorthwindContext _context;
+        private readonly NorthwindContext _context;
 
         public GetCustomersListQuery(NorthwindContext context)
         {
