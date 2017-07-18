@@ -3,11 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+
 # User-specific files
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+appsettings.localdev.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
