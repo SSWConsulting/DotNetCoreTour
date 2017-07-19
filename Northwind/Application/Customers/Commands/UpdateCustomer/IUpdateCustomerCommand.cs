@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using NorthwindTraders.Application.Customers.Queries.GetCustomerDetail;
 
 namespace NorthwindTraders.Application.Customers.Commands.UpdateCustomer
 {
     public interface IUpdateCustomerCommand
     {
-        Task Execute(UpdateCustomerModel model);
+        Task<CustomerDetailModel> Execute(UpdateCustomerModel model);
     }
 }

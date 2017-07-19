@@ -61,36 +61,25 @@ namespace NorthwindTraders.NorthwindApi.Controllers
             {
                 return BadRequest();
             }
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
             await _createCustomerCommand.Execute(customer);
 
             return CreatedAtRoute("Create", new { customer.Id }, customer);
         }
 
+        
         // PUT api/customers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody]UpdateCustomerModel customer)
+        [ValidateModel]
+        public async Task<CustomerDetailModel> Update(string id, [FromBody]UpdateCustomerModel customer)
         {
-            if (customer == null || customer.Id != id)
-            {
-                return BadRequest();
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            await _updateCustomerCommand.Execute(customer);
-
-            return new NoContentResult();
+            return await _updateCustomerCommand.Execute(customer);
         }
 
+        
         // DELETE api/customers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute]string id)

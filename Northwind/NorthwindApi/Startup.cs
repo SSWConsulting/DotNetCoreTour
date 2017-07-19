@@ -1,10 +1,12 @@
 ﻿using Autofac;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NorthwindTraders.Application.Customers.Commands.UpdateCustomer;
 using NorthwindTraders.NorthwindApi.Infrastructure;
 using NorthwindTraders.Persistence;
 using Swashbuckle.AspNetCore.Swagger;
@@ -30,7 +32,8 @@ namespace NorthwindTraders.NorthwindApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UpdateCustomerModelValidator>());
 
             services.AddSwaggerGen(c =>
             {
