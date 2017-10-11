@@ -10,6 +10,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using NorthwindTraders.Domain;
 using NorthwindTraders.Persistence;
+using Remotion.Linq.Clauses;
 
 namespace NorthwindTraders.Application.Customers.Queries.GetCustomerOrders
 {
@@ -29,13 +30,13 @@ namespace NorthwindTraders.Application.Customers.Queries.GetCustomerOrders
             efQuery = ApplyFilters(efQuery, queryModel);
             efQuery = ApplyPaging(efQuery, queryModel);
 
-            //return await SimpleSelect(efQuery);
+            return await SimpleSelect(efQuery);
        
             // return await ToListSelect(efQuery);
             // return await SelectAnon(efQuery);
             // return await ReusableProjection(efQuery);
             // return await ExtensionMethod(efQuery);
-             return await AutoMapper(efQuery);
+            // return await AutoMapper(efQuery);
 
 
             // Note: Show Linqkit predicate builder
@@ -200,7 +201,8 @@ namespace NorthwindTraders.Application.Customers.Queries.GetCustomerOrders
             {
                 return efQuery
                     .Skip(queryModel.PageIndex.Value * queryModel.PageSize.Value)
-                    .Take(queryModel.PageSize.Value);
+                    .Take(queryModel.PageSize.Value)
+                    .OrderBy(c => c.CompanyName);
             }
             return efQuery;
         }
