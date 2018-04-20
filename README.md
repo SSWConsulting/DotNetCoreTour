@@ -1,2 +1,3 @@
-# DotNetCoreTour
-Demo code for Dotnet Core Tour July 2017
+# .NET Core Superpowers Tour
+
+Demo code and slides for .NET Core Tour
